@@ -8,7 +8,7 @@ package com.h66.codecampmisclibrary;
 
 public final class R {
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f0200ad;
+		public static final int ic_launcher = 0x7f0200af;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f0a0041;

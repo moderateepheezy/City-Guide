@@ -251,7 +251,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 			} else if (i == 2) {
 				parent.setText("Business");
-				parent.setIcon(R.drawable.men14);
+				parent.setIcon(R.drawable.bb);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
@@ -305,7 +305,7 @@ public class NavigationDrawerFragment extends Fragment {
 				child1.setChildID(fastFoodID);
 				parent.getChildren().add(child1);
 			} else if (i == 4) {
-				parent.setText("Artisants");
+				parent.setText("Artisans");
 				parent.setIcon(R.drawable.ic_launcher);
 				parent.setChildren(new ArrayList<Child>());
 
@@ -352,7 +352,7 @@ public class NavigationDrawerFragment extends Fragment {
 				parent.getChildren().add(child5);
 			} else if (i == 5) {
 				parent.setText("School");
-				parent.setIcon(R.drawable.school47);
+				parent.setIcon(R.drawable.dd);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
