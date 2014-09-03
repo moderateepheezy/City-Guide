@@ -306,7 +306,7 @@ public class NavigationDrawerFragment extends Fragment {
 				parent.getChildren().add(child1);
 			} else if (i == 4) {
 				parent.setText("Artisans");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.workers);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
@@ -370,7 +370,7 @@ public class NavigationDrawerFragment extends Fragment {
 				parent.getChildren().add(child1);
 			} else if (i == 6) {
 				parent.setText("Others");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.others);
 				parent.setChildren(new ArrayList<Child>());
 
 				final Child child6 = new Child();
