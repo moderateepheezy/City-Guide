@@ -47,10 +47,8 @@ public class ExpandableAdapter extends BaseExpandableListAdapter{
  
         TextView txtListChild = (TextView) convertView
                 .findViewById(R.id.childItemText);
-        ImageView childImageView = (ImageView)convertView.findViewById(R.id.childItemImage);
  
         txtListChild.setText(child.getChildText());
-        childImageView.setImageResource(child.getChildIcon());
         return convertView;
 	}
 

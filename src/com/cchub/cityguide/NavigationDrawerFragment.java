@@ -2,20 +2,12 @@ package com.cchub.cityguide;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import com.cchub.cityguide.MainActivity.PlaceholderFragment;
-import com.codecamp.libs.RestClient;
-import com.codecamp.libs.RestClient.RequestMethod;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -36,6 +28,8 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
+
+import com.cchub.cityguide.MainActivity.PlaceholderFragment;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation
@@ -97,8 +91,6 @@ public class NavigationDrawerFragment extends Fragment {
 		this.catID = catID;
 	}
 
-	private static String title = "";
-
 	public NavigationDrawerFragment() {
 	}
 
@@ -157,10 +149,12 @@ public class NavigationDrawerFragment extends Fragment {
 					int groupPosition, int childPosition, long id) {
 				// switch(childPosition){
 				// case 0:
+				Intent i = new Intent();
+				//i.putExtra("tilte", listDataHeader.get(groupPosition));
 				if (listDataHeader.get(groupPosition).getChildren()
 						.get(childPosition).getContent() != null) {
 					final Child c = listDataHeader.get(groupPosition).getChildren().get(childPosition);
-					title = c.getChildText();
+					//title = c.getChildText();
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							getActivity());
 					builder.setIcon(R.drawable.ic_launcher);
@@ -190,7 +184,7 @@ public class NavigationDrawerFragment extends Fragment {
 											.getItem(which);
 									setCategory(strName);
 									setCatID(c.getContentID()[which]);
-									Toast.makeText(getActivity(), "cat and catID>> "+getCategory()+"||"+getCatID(), Toast.LENGTH_SHORT).show();
+									//Toast.makeText(getActivity(), "cat and catID>> "+getCategory()+"||"+getCatID(), Toast.LENGTH_SHORT).show();
 									
 									PlaceholderFragment.getValues(getCategory(),String.valueOf(getCatID()));
 									if (mDrawerLayout != null) {
@@ -220,8 +214,8 @@ public class NavigationDrawerFragment extends Fragment {
 				} 
 				else if (listDataHeader.get(groupPosition).getChildren()
 						.get(childPosition).getContent() == null) {
-					title = listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText();
-					setCategory(title);
+					//title = listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText();
+					setCategory(listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText());
 					setCatID(listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildID());
 					Toast.makeText(getActivity(), "cat and catID>> "+getCategory()+"||"+getCatID(), Toast.LENGTH_SHORT).show();
 					PlaceholderFragment.getValues(getCategory(),String.valueOf(getCatID()));
@@ -252,12 +246,12 @@ public class NavigationDrawerFragment extends Fragment {
 			// String[] x = {"a", "b", "c"};
 			if (i == 1) {
 				parent.setText("Prefrence");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.favourite1);
 				parent.setChildren(new ArrayList<Child>());
 
 			} else if (i == 2) {
 				parent.setText("Business");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.men14);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
@@ -294,13 +288,12 @@ public class NavigationDrawerFragment extends Fragment {
 				parent.getChildren().add(child1);
 			} else if (i == 3) {
 				parent.setText("Fun and Relaxation");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.funny);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
 				final Child child = new Child();
 				child.setChildText("Bar");
-				child.setChildIcon(R.drawable.ic_launcher);
 				int barID = 263;
 				child.setChildID(barID);
 				parent.getChildren().add(child);
@@ -308,7 +301,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child1 = new Child();
 				child1.setChildText("Fast Food joint");
-				child1.setChildIcon(R.drawable.ic_launcher);
 				int fastFoodID = 267;
 				child1.setChildID(fastFoodID);
 				parent.getChildren().add(child1);
@@ -320,7 +312,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Child value
 				final Child child = new Child();
 				child.setChildText("Aluminum Fabricator");
-				child.setChildIcon(R.drawable.ic_launcher);
 				int aluminumID = 962;
 				child.setChildID(aluminumID);
 				parent.getChildren().add(child);
@@ -328,7 +319,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child1 = new Child();
 				child1.setChildText("Capenter");
-				child1.setChildIcon(R.drawable.ic_launcher);
 				int capenterID = 320;
 				child1.setChildID(capenterID);
 				parent.getChildren().add(child1);
@@ -336,7 +326,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child2 = new Child();
 				child2.setChildText("Electrician");
-				child2.setChildIcon(R.drawable.ic_launcher);
 				int electID = 323;
 				child2.setChildID(electID);
 				parent.getChildren().add(child2);
@@ -344,7 +333,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child3 = new Child();
 				child3.setChildText("Fashoin Designer");
-				child3.setChildIcon(R.drawable.ic_launcher);
 				int fashionID = 244;
 				child3.setChildID(fashionID);
 				parent.getChildren().add(child3);
@@ -352,7 +340,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child4 = new Child();
 				child4.setChildText("Graphics Designer");
-				child4.setChildIcon(R.drawable.ic_launcher);
 				int graphicsID = 655;
 				child4.setChildID(graphicsID);
 				parent.getChildren().add(child4);
@@ -360,19 +347,17 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child5 = new Child();
 				child5.setChildText("Interior Designer");
-				child5.setChildIcon(R.drawable.ic_launcher);
 				int interiorID = 327;
 				child5.setChildID(interiorID);
 				parent.getChildren().add(child5);
 			} else if (i == 5) {
 				parent.setText("School");
-				parent.setIcon(R.drawable.ic_launcher);
+				parent.setIcon(R.drawable.school47);
 				parent.setChildren(new ArrayList<Child>());
 
 				// Set Child value
 				final Child child = new Child();
 				child.setChildText("Primary School");
-				child.setChildIcon(R.drawable.ic_launcher);
 				int primarySchoolID = 166;
 				child.setChildID(primarySchoolID);
 				parent.getChildren().add(child);
@@ -380,7 +365,6 @@ public class NavigationDrawerFragment extends Fragment {
 				// Set Second Child
 				final Child child1 = new Child();
 				child1.setChildText("Secondary School");
-				child1.setChildIcon(R.drawable.ic_launcher);
 				int secondarySchoolID = 168;
 				child1.setChildID(secondarySchoolID);
 				parent.getChildren().add(child1);
@@ -391,7 +375,6 @@ public class NavigationDrawerFragment extends Fragment {
 
 				final Child child6 = new Child();
 				child6.setChildText("Church");
-				child6.setChildIcon(R.drawable.ic_launcher);
 				int churchID = 515;
 				child6.setChildID(churchID);
 				parent.getChildren().add(child6);
@@ -575,7 +558,7 @@ public class NavigationDrawerFragment extends Fragment {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(true);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setTitle(title);
+		actionBar.setTitle(R.string.app_name);
 	}
 
 	private ActionBar getActionBar() {

@@ -61,7 +61,7 @@ public class ImageViewAdapter extends ArrayAdapter<ImageItem>{
 		final int busid2 = m.getBusinessID();
 		//imageloader.DisplayImage(url, img);
 		img.setImageResource(m.getImage());
-		Toast.makeText(context, "First" + m.getBusinessID(), Toast.LENGTH_SHORT).show();
+		//Toast.makeText(context, "First" + m.getBusinessID(), Toast.LENGTH_SHORT).show();
 		img.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -113,7 +113,7 @@ public class ImageViewAdapter extends ArrayAdapter<ImageItem>{
             longitude = gps.getLongitude();                   
             // \n is for new line
 			//Toast.makeText(getContext(), busid, Toast.LENGTH_LONG).show();
-            Toast.makeText(getContext().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();   
+            //Toast.makeText(getContext().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();   
         }else{
             // can't get location
             // GPS or Network is not enabled

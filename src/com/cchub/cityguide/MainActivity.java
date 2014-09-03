@@ -91,17 +91,21 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	public void onSectionAttached(int number) {
-		switch (number) {
-		case 1:
-			mTitle = getString(R.string.title_section1);
-			break;
-		case 2:
-			mTitle = getString(R.string.title_section2);
-			break;
-		case 3:
-			mTitle = getString(R.string.title_section3);
-			break;
+		ArrayList<Parent> p = new ArrayList<Parent>();
+		for(int i = 0; i < p.size(); i++){
+			mTitle = p.get(i).getChildren().get(number).getChildText();
 		}
+//		switch (number) {
+//		case 1:
+//			mTitle = getString(R.string.title_section1);
+//			break;
+//		case 2:
+//			mTitle = getString(R.string.title_section2);
+//			break;
+//		case 3:
+//			mTitle = getString(R.string.title_section3);
+//			break;
+//		}
 	}
 
 	public void restoreActionBar() {
@@ -248,7 +252,7 @@ public class MainActivity extends ActionBarActivity implements
 						+ "="
 						+ category
 						+ "&Location="
-						+ "Yaba"
+						+ "Ikeja"
 						+ "&contentid="
 						+ catid
 						+ "&pageNum="
