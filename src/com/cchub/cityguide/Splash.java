@@ -18,12 +18,6 @@ public class Splash extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		
-		ImageView logo = (ImageView) this.findViewById(R.id.imageView1);
-        TextView title = (TextView) this.findViewById(R.id.textView1);
-        TextView tm = (TextView) this.findViewById(R.id.textView2);
-        TextView warn = (TextView) this.findViewById(R.id.textView3);
-        ProgressBar load = (ProgressBar) this.findViewById(R.id.progressBar1);
         
         new Handler().postDelayed(new Runnable() {
 

@@ -7,26 +7,24 @@ public class Vconnect {
 	public String businessName;
 	public String bussinessAddress;
 	public String image;
-	public String BusinessID;
+	public int BusinessIDs;
 	public Vconnect(JSONObject json) {
 		try {
 			this.businessName = json.getString("BusinessName");
 			this.bussinessAddress = json.getString("City");
-			this.image = json.getString("CompanyLogo");
-			this.BusinessID = json.getString("BusinessName");
+			//this.image = json.getString("CompanyLogo");
+			this.BusinessIDs = json.getInt("BusinessId");
 	}catch (JSONException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 		}
 	}
 	
-	public String getBusinessID() {
-		return BusinessID;
+	public int getBusinessIDs() {
+		return this.BusinessIDs;
 	}
 
-	public void setBusinessID(String businessID) {
-		BusinessID = businessID;
-	}
+	
 
 	public String getBusinessName() {
 		return businessName;

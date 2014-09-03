@@ -63,8 +63,6 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 		ctx = getApplicationContext();
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
@@ -176,39 +174,39 @@ public class MainActivity extends ActionBarActivity implements
 				ls.setAdapter(adapter);
 			}
 
-			ls.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(
-							getActivity());
-					builder.setTitle("ALERT");
-					builder.setMessage("This is a Dialog").setCancelable(true);
-					builder.setNeutralButton("Dassall", null);
-					builder.create().show();
-					Intent i = new Intent(getActivity(),ViewBusiness.class);
-					i.putExtra("longitude", longitude);
-					i.putExtra("lattitude", latitude);
-					i.putExtra("businessid", 211242);
-					startActivity(i);
-				}
-
-			});
-			
-			gps = new GPSTracker(getActivity());
-	        // check if GPS enabled       
-	        if(gps.canGetLocation()){                  
-	             latitude = gps.getLatitude();
-	            longitude = gps.getLongitude();                   
-	            // \n is for new line
-	            Toast.makeText(getActivity().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();   
-	        }else{
-	            // can't get location
-	            // GPS or Network is not enabled
-	            // Ask user to enable GPS/network in settings
-	            gps.showSettingsAlert();
-	        }
+//			ls.setOnItemClickListener(new OnItemClickListener() {
+//
+//				@Override
+//				public void onItemClick(AdapterView<?> arg0, View arg1,
+//						int arg2, long arg3) {
+//					AlertDialog.Builder builder = new AlertDialog.Builder(
+//							getActivity());
+//					builder.setTitle("ALERT");
+//					builder.setMessage("This is a Dialog").setCancelable(true);
+//					builder.setNeutralButton("Dassall", null);
+//					builder.create().show();
+//					Intent i = new Intent(getActivity(),ViewBusiness.class);
+//					i.putExtra("longitude", longitude);
+//					i.putExtra("lattitude", latitude);
+//					i.putExtra("businessid", 211242);
+//					startActivity(i);
+//				}
+//
+//			});
+//			
+//			gps = new GPSTracker(getActivity());
+//	        // check if GPS enabled       
+//	        if(gps.canGetLocation()){                  
+//	             latitude = gps.getLatitude();
+//	            longitude = gps.getLongitude();                   
+//	            // \n is for new line
+//	            Toast.makeText(getActivity().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();   
+//	        }else{
+//	            // can't get location
+//	            // GPS or Network is not enabled
+//	            // Ask user to enable GPS/network in settings
+//	            gps.showSettingsAlert();
+//	        }
 			return rootView;
 		}
 
@@ -254,8 +252,8 @@ public class MainActivity extends ActionBarActivity implements
 						+ "&contentid="
 						+ catid
 						+ "&pageNum="
-						+ 1
-						+ "&rowsPerPage=" + 3;
+						+ 3
+						+ "&rowsPerPage=" + 10;
 				connect = new RestClient(apiUrl);
 				try {
 					connect.Execute(RequestMethod.GET);
@@ -270,7 +268,7 @@ public class MainActivity extends ActionBarActivity implements
 								(JSONObject) dataObject.get(i));
 						imageList
 								.add(new ImageItem(v.getBussinessAddress(),v.getBusinessName(),
-										R.drawable.god1));
+										R.drawable.god1, v.getBusinessIDs()));
 					}
 
 				} catch (Exception e) {

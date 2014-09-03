@@ -1,7 +1,9 @@
 package com.cchub.cityguide;
 import java.util.ArrayList;
-import java.util.List;
 
+import android.app.Activity;
+
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,14 +16,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
+import android.widget.Toast;
+import android.app.Activity;
 public class ImageViewAdapter extends ArrayAdapter<ImageItem>{
 	Context context;
 	ArrayList<ImageItem> data;
 	int layout;
+	static double latitude;
+	 static double longitude;
+	 static int busid;
+	Button proceed;
+	static GPSTracker gps;
 	//ImageLoader imageloader;
 
 	public ImageViewAdapter(Context context, int layout,ArrayList<ImageItem> objects) {
@@ -46,43 +52,74 @@ public class ImageViewAdapter extends ArrayAdapter<ImageItem>{
 		ImageButton img = (ImageButton)rootView.findViewById(R.id.imageView);
 		TextView companyName = (TextView)rootView.findViewById(R.id.companyName);
 		TextView address = (TextView)rootView.findViewById(R.id.address);
-		
-		ImageItem m = getItem(position);
+		TextView bussinessid = (TextView)rootView.findViewById(R.id.bussinessid);
+		final ImageItem m = getItem(position);
 		companyName.setText(m.getCompanyName());
-		Log.i("test", m.getCompanyName());
 		address.setText(m.getAddress());
+		//bussinessid.setText(m.getBusinessID());
+		String x = bussinessid.getText().toString();
+		final int busid2 = m.getBusinessID();
 		//imageloader.DisplayImage(url, img);
 		img.setImageResource(m.getImage());
-		
+		Toast.makeText(context, "First" + m.getBusinessID(), Toast.LENGTH_SHORT).show();
 		img.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				final ProgressDialog pd = new ProgressDialog(context);
-				pd.setMessage("This is a progress Dialog");
-				pd.setCancelable(true);
-				pd.show();
-				
-				final Thread thread= new Thread(new Runnable() {
-					
-					@Override
-					public void run() {
-						try {
-							Thread.sleep(1000);
-							pd.dismiss();
-							Intent i = new Intent(context, MainActivity.class);
+//				final ProgressDialog pd = new ProgressDialog(context);
+//				pd.setMessage("This is a progress Dialog");
+//				pd.setCancelable(true);
+//				pd.show();
+//				
+//				final Thread thread= new Thread(new Runnable() {
+//					
+//					@Override
+//					public void run() {
+//						try {
+//							Thread.sleep(1000);
+//							pd.dismiss();
+//							Intent i = new Intent(context, MainActivity.class);
+//							context.startActivity(i);
+//							AlertDialog.Builder builder = new AlertDialog.Builder(
+//									getContext());
+//							builder.setTitle("ALERT");
+//							builder.setMessage("This is a Dialog").setCancelable(true);
+//							builder.setNeutralButton("Dassall", null);
+//							builder.create().show();
+							Intent i = new Intent(getContext().getApplicationContext(),ViewBusiness.class);
+							i.putExtra("longitude", longitude);
+							i.putExtra("lattitude", latitude);
+							i.putExtra("businessid", m.getBusinessID());
+							i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							//Toast.makeText(context, "First" + busid, Toast.LENGTH_LONG).show();
 							context.startActivity(i);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						
-					}
-				});
-				thread.start();
-				
 			}
 		});
-		
+//						} catch (InterruptedException e) {
+//							e.printStackTrace();
+//						}
+//						
+//					}
+//				});
+//				thread.start();
+//				
+//			}
+//		});
+			
+		gps = new GPSTracker(getContext().getApplicationContext());
+        // check if GPS enabled       
+        if(gps.canGetLocation()){                  
+             latitude = gps.getLatitude();
+            longitude = gps.getLongitude();                   
+            // \n is for new line
+			//Toast.makeText(getContext(), busid, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();   
+        }else{
+            // can't get location
+            // GPS or Network is not enabled
+            // Ask user to enable GPS/network in settings
+            gps.showSettingsAlert();
+        }
 		return rootView;
 	}
 	

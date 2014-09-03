@@ -18,6 +18,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,6 +56,7 @@ public class ViewBusiness extends ActionBarActivity {
 		currentlat = i.getDoubleExtra("lattitude", 6.4433);
 		restclient = "http://72.251.246.227/vconnect_restservice_hack_2014/VConnect.svc/GetBusinessDetails?BusinessId="
 				+ i.getIntExtra("businessid", 1);
+		//Toast.makeText(getApplicationContext(), i.getIntExtra("businessid", 233)+" nn",Toast.LENGTH_LONG).show();
 		address = (TextView) findViewById(R.id.address);
 		businessname = (TextView) findViewById(R.id.businessname);
 		city = (TextView) findViewById(R.id.city);
@@ -139,7 +141,7 @@ public class ViewBusiness extends ActionBarActivity {
 					startActivity(intent);
 			}
 		});
-		new GetJsonTask().execute();
+	new GetJsonTask().execute();
 
 	}
 
