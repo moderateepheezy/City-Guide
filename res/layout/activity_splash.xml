@@ -29,37 +29,13 @@
         android:textStyle="bold|normal"
         android:typeface="sans" />
 
-    <ProgressBar
-        android:id="@+id/progressBar1"
-        style="?android:attr/progressBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="54dp"
-        android:layout_toLeftOf="@+id/bussinessid"
-        android:minHeight="12dp"
-        android:minWidth="12dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/progressBar1"
-        android:layout_alignRight="@+id/bussinessid"
-        android:layout_below="@+id/textView2"
-        android:text="Setting things up..."
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        android:typeface="sans" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/progressBar1"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="48dp"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="107dp"
         android:gravity="center"
         android:padding="20dp"
         android:text="Discover and explore amazing events, places and hangouts your city have to offer."
@@ -67,6 +43,26 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#f0ffffff"
         android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="22dp"
+        android:text="Setting things up..."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:typeface="sans" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView3" />
 
 </RelativeLayout>
 

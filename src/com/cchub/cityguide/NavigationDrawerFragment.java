@@ -27,6 +27,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cchub.cityguide.MainActivity.PlaceholderFragment;
@@ -73,6 +74,7 @@ public class NavigationDrawerFragment extends Fragment {
 	private boolean mUserLearnedDrawer;
 	private String category;
 	private int catID;
+	public String title = "";
 	
 	
 	public String getCategory() {
@@ -154,7 +156,7 @@ public class NavigationDrawerFragment extends Fragment {
 				if (listDataHeader.get(groupPosition).getChildren()
 						.get(childPosition).getContent() != null) {
 					final Child c = listDataHeader.get(groupPosition).getChildren().get(childPosition);
-					//title = c.getChildText();
+					title = c.getChildText();
 					AlertDialog.Builder builder = new AlertDialog.Builder(
 							getActivity());
 					builder.setIcon(R.drawable.ic_launcher);
@@ -214,7 +216,7 @@ public class NavigationDrawerFragment extends Fragment {
 				} 
 				else if (listDataHeader.get(groupPosition).getChildren()
 						.get(childPosition).getContent() == null) {
-					//title = listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText();
+					title = listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText();
 					setCategory(listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildText());
 					setCatID(listDataHeader.get(groupPosition).getChildren().get(childPosition).getChildID());
 					Toast.makeText(getActivity(), "cat and catID>> "+getCategory()+"||"+getCatID(), Toast.LENGTH_SHORT).show();
@@ -532,6 +534,9 @@ public class NavigationDrawerFragment extends Fragment {
 			showGlobalContextActionBar();
 		}
 		super.onCreateOptionsMenu(menu, inflater);
+//
+//		MenuItem item = menu.findItem(R.id.action_example);
+//		item.setTitle(title);
 	}
 
 	@Override
@@ -540,11 +545,11 @@ public class NavigationDrawerFragment extends Fragment {
 			return true;
 		}
 
-		if (item.getItemId() == R.id.action_example) {
-			Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT)
-					.show();
-			return true;
-		}
+//		if (item.getItemId() == R.id.action_example) {
+//			Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT)
+//					.show();
+//			return true;
+//		}
 
 		return super.onOptionsItemSelected(item);
 	}

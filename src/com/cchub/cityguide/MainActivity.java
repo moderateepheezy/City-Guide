@@ -173,7 +173,7 @@ public class MainActivity extends ActionBarActivity implements
 			ls = (ListView) rootView.findViewById(R.id.listView);
 			imageList = new ArrayList<ImageItem>();
 			if (!imageList.isEmpty()) {
-				adapter = new ImageViewAdapter(getActivity(),
+				 adapter = new ImageViewAdapter(getActivity(),
 						R.layout.selected, imageList);
 				ls.setAdapter(adapter);
 			}
@@ -247,12 +247,14 @@ public class MainActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				String category = arg0[0];
 				String catid = arg0[1];
+				//Intent x = getActivity().getIntent();
+				//String address = x.getStringExtra("address");
 				//String apiUrl2 = "http://72.251.246.227/vconnect_restservice_hack_2014/VConnect.svc/GetBusinessDetails?BusinessId=" + catid;
 				String apiUrl = "http://72.251.246.227/vconnect_restservice_hack_2014/VConnect.svc/GetSearchByCategory?KeyWord"
 						+ "="
 						+ category
 						+ "&Location="
-						+ "Ikeja"
+						+ "yaba"
 						+ "&contentid="
 						+ catid
 						+ "&pageNum="
@@ -266,7 +268,7 @@ public class MainActivity extends ActionBarActivity implements
 					JSONObject object = new JSONObject(text);
 					object.get("ResponseCode");
 					JSONArray dataObject = object.getJSONArray("SearchList");
-					System.err.println("------------------------------------>"+dataObject.length());
+					imageList.clear();
 					for (int i = 0; i < dataObject.length(); i++) {
 						Vconnect v = new Vconnect(
 								(JSONObject) dataObject.get(i));
@@ -287,7 +289,7 @@ public class MainActivity extends ActionBarActivity implements
 				// TODO Auto-generated method stub
 				super.onPostExecute(result);
 				//data.addAll(data);
-				ImageViewAdapter adapter = new ImageViewAdapter(
+				 adapter = new ImageViewAdapter(
 						ctx, R.layout.selected, imageList);
 				adapter.notifyDataSetChanged();
 				ls.setAdapter(adapter);

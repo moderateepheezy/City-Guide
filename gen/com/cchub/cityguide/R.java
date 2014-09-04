@@ -1805,7 +1805,7 @@ containing a value of this type.
         public static final int picker_subtitle=0x7f05007f;
         public static final int production=0x7f05001f;
         public static final int products=0x7f050064;
-        public static final int progressBar1=0x7f050058;
+        public static final int progressBar1=0x7f050059;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f050043;
@@ -1839,7 +1839,7 @@ containing a value of this type.
         public static final int terrain=0x7f05001b;
         public static final int textView1=0x7f050057;
         public static final int textView2=0x7f050055;
-        public static final int textView3=0x7f050059;
+        public static final int textView3=0x7f050058;
         public static final int thursday=0x7f050069;
         public static final int title=0x7f05003f;
         public static final int top_action_bar=0x7f050034;
@@ -1978,7 +1978,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_example=0x7f0a004f;
+        public static final int action_example=0x7f0a004c;
         public static final int action_settings=0x7f0a0044;
         public static final int app_id=0x7f0a0042;
         public static final int app_name=0x7f0a0041;
@@ -2098,17 +2098,14 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f0a0025;
         public static final int hello_world=0x7f0a0043;
-        public static final int navigation_drawer_close=0x7f0a004e;
-        public static final int navigation_drawer_open=0x7f0a004d;
+        public static final int navigation_drawer_close=0x7f0a004b;
+        public static final int navigation_drawer_open=0x7f0a004a;
         public static final int title_activity_city_guide=0x7f0a0046;
         public static final int title_activity_login=0x7f0a0045;
-        public static final int title_activity_main=0x7f0a0050;
+        public static final int title_activity_main=0x7f0a004d;
         public static final int title_section1=0x7f0a0047;
         public static final int title_section2=0x7f0a0048;
         public static final int title_section3=0x7f0a0049;
-        public static final int title_section4=0x7f0a004a;
-        public static final int title_section5=0x7f0a004b;
-        public static final int title_section6=0x7f0a004c;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */

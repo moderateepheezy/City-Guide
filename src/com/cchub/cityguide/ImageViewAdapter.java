@@ -87,8 +87,8 @@ public class ImageViewAdapter extends ArrayAdapter<ImageItem>{
 //							builder.setNeutralButton("Dassall", null);
 //							builder.create().show();
 							Intent i = new Intent(getContext().getApplicationContext(),ViewBusiness.class);
-							i.putExtra("longitude", longitude);
-							i.putExtra("lattitude", latitude);
+//							i.putExtra("longitude", longitude);
+//							i.putExtra("lattitude", latitude);
 							i.putExtra("businessid", m.getBusinessID());
 							i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							//Toast.makeText(context, "First" + busid, Toast.LENGTH_LONG).show();
